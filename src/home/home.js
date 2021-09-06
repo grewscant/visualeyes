@@ -12,13 +12,13 @@ function validateInputFile (ev) {
     
     if (!(inputFile.type === 'text/csv')) {
         alert('Error: Invalid File Type');
-        throw '[FILE FETCH]: Fail';
+        return
     }
     else {
         storeInputBlobAsFile(inputFile, inputFile.name);
         console.log('[FILE FETCH]: Success');
         console.log('Redirecting...');
-        window.location.replace("/src/visualiser/visualiser.html");
+        window.location.replace("/src/vis/vis.html");
     }
 }
 
