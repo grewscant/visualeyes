@@ -10,7 +10,7 @@ dataset.onchange = (ev) => {
 function validateInputFile (ev) {
     let inputFile = ev.target.files[0];
     
-    if (!(inputFile.type === 'text/csv')) {
+    if (!(inputFile.type == 'text/csv')) {
         alert('Error: Invalid File Type');
         return
     }
