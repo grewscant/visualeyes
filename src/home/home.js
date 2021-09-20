@@ -1,3 +1,22 @@
+let dataset = document.getElementById("dataset");
+let container = document.getElementById("container");
+
+function drag(ev) {
+    container.classList.add('drag')
+}
+
+function nodrag(ev) {
+    container.classList.remove('drag')
+}
+
+;['dragenter', 'dragover'].forEach(ev => {
+    container.addEventListener(ev, drag, false)
+})
+
+;['dragleave', 'drop'].forEach(ev => {
+    container.addEventListener(ev, nodrag, false)
+})
+
 dataset.onchange = (ev) => {
     try {
         validateInputFile(ev)
@@ -10,21 +29,15 @@ dataset.onchange = (ev) => {
 function validateInputFile (ev) {
     let inputFile = ev.target.files[0];
     
-    if (!(inputFile.type == 'text/csv')) {
+    if (!(inputFile.type === 'text/csv')) {
         alert('Error: Invalid File Type');
         return
     }
     else {
-        storeInputBlobAsFile(inputFile, inputFile.name);
         console.log('[FILE FETCH]: Success');
         console.log('Redirecting...');
-        window.location.replace("/src/vis/vis.html");
+        window.location.replace("/src/vis/vis.html", "_blank");
     }
 }
 
-function storeInputBlobAsFile(csvFile, fileName) {
-    csvFile.lastModifiedDate = new Date();
-    csvFile.name = fileName;
-    return csvFile;
-}
 
