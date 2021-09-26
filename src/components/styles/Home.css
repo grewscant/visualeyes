@@ -8,7 +8,7 @@
   position: fixed;
 }
 
-input[id="dataset"] {
+input[id='dataset'] {
   opacity: 0;
   position: relative;
   width: 100%;
@@ -16,8 +16,8 @@ input[id="dataset"] {
 }
 
 .dnd-icon {
-  width: '250px'; 
-  position: relative; 
+  width: '250px';
+  position: relative;
   left: 15%;
 }
 

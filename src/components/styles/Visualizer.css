@@ -52,7 +52,7 @@ button {
   margin-right: 4px;
 }
 
-input[type="radio"] {
+input[type='radio'] {
   display: none;
   z-index: -1;
 }

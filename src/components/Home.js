@@ -1,10 +1,10 @@
-import { useHistory } from "react-router-dom";
-import "./styles/Home.css";
+import { useHistory } from 'react-router-dom';
+import './styles/Home.css';
 
 const Home = () => {
   const history = useHistory();
 
-  const onInputChange = (e) => {
+  const onInputChange = e => {
     try {
       validateInputFile(e);
     } catch (err) {
@@ -15,15 +15,15 @@ const Home = () => {
   function validateInputFile(e) {
     let inputFile = e.target.files[0];
 
-    if (!inputFile.type === "text/csv") {
-      throw Error("Please drop only CSVs");
+    if (!inputFile.type === 'text/csv') {
+      throw Error('Please drop only CSVs');
     } else {
       navigateToVisualizer();
     }
   }
 
   function navigateToVisualizer() {
-    history.push("/visualizer");
+    history.push('/visualizer');
   }
 
   return (

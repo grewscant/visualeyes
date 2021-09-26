@@ -1,9 +1,8 @@
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import "./styles/App.css";
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import './styles/App.css';
 
-import Home from "./Home";
-import Visualizer from "./Visualizer";
-
+import Home from './Home';
+import Visualizer from './Visualizer';
 
 function App() {
   return (

@@ -1,4 +1,4 @@
-import "./styles/Visualizer.css";
+import './styles/Visualizer.css';
 
 const Visualizer = ({ props }) => {
   return (
@@ -6,25 +6,20 @@ const Visualizer = ({ props }) => {
       <div className="dataset-container">
         <h1 className="title">Dataset</h1>
         <div className="attribute-container">
-          <input type="checkbox" className="dataset-column-name"/>
-            Lorem.
-          
+          <input type="checkbox" className="dataset-column-name" />
+          Lorem.
           <br />
-          <input type="checkbox" className="dataset-column-name"/>
-            Earum.
-          
+          <input type="checkbox" className="dataset-column-name" />
+          Earum.
           <br />
-          <input type="checkbox" className="dataset-column-name"/>
-            Expedita.
-          
+          <input type="checkbox" className="dataset-column-name" />
+          Expedita.
           <br />
-          <input type="checkbox" className="dataset-column-name"/>
-            Et.
-          
+          <input type="checkbox" className="dataset-column-name" />
+          Et.
           <br />
-          <input type="checkbox" className="dataset-column-name"/>
-            ipsum.
-          
+          <input type="checkbox" className="dataset-column-name" />
+          ipsum.
           <br />
         </div>
       </div>
