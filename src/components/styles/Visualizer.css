@@ -43,6 +43,18 @@ div.dataset-container {
 .vis-container {
   padding: 10px;
   border: 2px solid black;
+  border-radius: 5px;
+}
+
+.dataset-container {
+  border-right: none;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.vis-container {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
 }
 
 button {
@@ -58,7 +70,7 @@ input[type='radio'] {
 }
 
 input:checked + label {
-  background-color: orange;
+  background-color: rgb(200,200,200);
   color: white;
 }
 
@@ -73,6 +85,6 @@ label {
 }
 
 label:hover {
-  background-color: orange;
+  background-color: rgb(200,200,200);
   color: white;
 }
