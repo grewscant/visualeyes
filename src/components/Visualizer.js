@@ -1,4 +1,5 @@
 import './styles/Visualizer.css';
+import Variables from './Variables';
 
 const Visualizer = ({ props }) => {
   return (
@@ -6,21 +7,7 @@ const Visualizer = ({ props }) => {
       <div className="dataset-container">
         <h1 className="title">Dataset</h1>
         <div className="attribute-container">
-          <input type="checkbox" className="dataset-column-name" />
-          Lorem.
-          <br />
-          <input type="checkbox" className="dataset-column-name" />
-          Earum.
-          <br />
-          <input type="checkbox" className="dataset-column-name" />
-          Expedita.
-          <br />
-          <input type="checkbox" className="dataset-column-name" />
-          Et.
-          <br />
-          <input type="checkbox" className="dataset-column-name" />
-          ipsum.
-          <br />
+          <Variables />
         </div>
       </div>
       <div className="vis-container">
