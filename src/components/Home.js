@@ -27,16 +27,13 @@ const Home = () => {
   }
 
   return (
-    <div id="container">
+    <div>
+      <h1 className="title">Paste your dataset's URL here</h1>
+
       <input
-        type="file"
-        id="dataset"
-        accept=".csv,text/csv"
-        onChange={onInputChange}
+        type="text"
+        onSubmit={onInputChange}
       />
-      <div id="dropzone">
-        <h1 className="title">Drag &amp; Drop Your Dataset</h1>
-      </div>
     </div>
   );
 };
