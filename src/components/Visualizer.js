@@ -7,7 +7,9 @@ const Visualizer = ({ props }) => {
       <div className="dataset-container">
         <h1 className="title">Dataset</h1>
         <div className="attribute-container">
-          <Variables />
+          <Variables 
+            datasetUrl = {props}
+          />
         </div>
       </div>
       <div className="vis-container">

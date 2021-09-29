@@ -1,25 +1,33 @@
-import DF from "danfojs-node";
+import * as Danfo from 'danfojs/dist/index';
+import { useState, useEffect } from 'react';
 
-const Variables = (dataset) => {
+const Variables = ({ datasetUrl }) => {
+    const [variables, setVariables] = useState([]);
 
-    function getVariables() {
-        DF.read_csv(dataset)
-        .then(df => {
-            return df.columns;
-        }).catch(e => {
-            //prettify error
-        });
-    }
+    useEffect(() => {
+        Danfo.read_csv(datasetUrl)
+            .then(DataFrame => {
+                setVariables(DataFrame.columns);
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }, [datasetUrl]);
 
     return (
         <div className="variable-container">
-            {getVariables.map((value) => {
-                return <label>
-                <input type="checkbox" className="dataset-column-name" />{value}<br />
-                </label>;
+            {variables.map(variable => {
+                return (
+                    <div>
+                        <br />
+                        <input type="checkbox" className="dataset-variable-name" />
+                        {variable}
+                        <br />
+                    </div>
+                );
             })}
         </div>
-    )
-}
+    );
+};
 
 export default Variables;
