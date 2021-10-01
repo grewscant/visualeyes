@@ -1,3 +1,6 @@
+// This file has been temporarily deprecated.
+// Will be used if required.
+
 import { useHistory } from 'react-router-dom';
 import './styles/Home.css';
 
@@ -27,14 +30,8 @@ const Home = () => {
   }
 
   return (
-    <div>
-      <h1 className="title">Paste your dataset's URL here</h1>
-
-      <input
-        type="text"
-        onSubmit={onInputChange}
-      />
-    </div>
+    // TODO: Write logic here or delete this component
+    <div></div>
   );
 };
 
