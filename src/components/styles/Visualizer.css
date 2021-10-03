@@ -57,6 +57,10 @@ div.dataset-container {
   border-bottom-left-radius: 0px;
 }
 
+.plot-btn {
+  display: inline;
+}
+
 button {
   border-radius: 6px;
   padding: 6px 12px;
