@@ -6,7 +6,6 @@ import './styles/App.css';
 import Visualizer from './Visualizer';
 
 const App = () => {
-
   const [datasetUrl, setDatasetUrl] = useState('');
   const datasetUrlInput = useRef(null);
 
@@ -36,13 +35,11 @@ const App = () => {
           </div>
         </Route>
         <Route path="/visualizer">
-          <Visualizer 
-            datasetUrl = {datasetUrl}
-          />
+          <Visualizer datasetUrl={datasetUrl} />
         </Route>
       </Switch>
     </Router>
   );
-}
+};
 
 export default App;

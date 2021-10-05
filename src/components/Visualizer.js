@@ -8,9 +8,7 @@ const Visualizer = ({ datasetUrl }) => {
       <div className="dataset-container">
         <h1 className="title">Dataset</h1>
         <div className="attribute-container">
-          <Variables 
-            datasetUrl = {datasetUrl}
-          />
+          <Variables datasetUrl={datasetUrl} />
         </div>
       </div>
       <div className="vis-container">
