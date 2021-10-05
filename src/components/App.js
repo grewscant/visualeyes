@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { useState } from 'react';
-import * as Danfo from 'danfojs/src/index';
+import * as Danfo from 'danfojs/dist/index';
 import './styles/App.css';
 
 import Visualizer from './Visualizer';
