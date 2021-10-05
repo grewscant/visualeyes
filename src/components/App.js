@@ -31,7 +31,8 @@ const App = () => {
         <Route exact path="/">
           <div>
             <h1 className="title">Paste your dataset's URL here</h1>
-            <input type="text" onSubmit={onInputSubmit} />
+            <input type="text" ref={datasetUrlInput} />
+            <button onClick={onButtonClick}>Let's go</button>
           </div>
         </Route>
         <Route path="/visualizer">
