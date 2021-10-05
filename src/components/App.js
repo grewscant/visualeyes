@@ -14,7 +14,7 @@ const App = () => {
   }
 
   function validateUrlAndSetState(datasetUrl) {
-    Danfo.read_csv()
+    Danfo.read_csv(datasetUrl)
       .then(dataFrame => {
         setDatasetUrl(dataFrame);
       })
