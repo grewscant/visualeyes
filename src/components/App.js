@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import * as Danfo from 'danfojs/dist/index';
 import './styles/App.css';
 
@@ -8,10 +8,10 @@ import Visualizer from './Visualizer';
 const App = () => {
 
   const [datasetUrl, setDatasetUrl] = useState('');
+  const datasetUrlInput = useRef(null);
 
-  function onInputSubmit(e) {
-    const datasetUrl = e.target.value;
-    validateUrlAndSetState(datasetUrl);
+  function onButtonClick() {
+    validateUrlAndSetState(datasetUrlInput.current.value);
   }
 
   function validateUrlAndSetState(datasetUrl) {
