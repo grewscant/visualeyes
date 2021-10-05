@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { useState, useRef } from 'react';
 import * as Danfo from 'danfojs/dist/index';
+import { Errors } from '../Constants'
 import './styles/App.css';
 
 import Visualizer from './Visualizer';
@@ -16,6 +17,9 @@ const App = () => {
   function validateUrlAndSetState(datasetUrl) {
     Danfo.read_csv(datasetUrl)
       .then(dataFrame => {
+        if (dataFrame.columns.length === 1) {
+          throw new Error(Errors.BAD_URL);
+        }
         setDatasetUrl(dataFrame);
       })
       .catch(e => {
