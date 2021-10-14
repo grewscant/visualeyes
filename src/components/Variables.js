@@ -2,6 +2,9 @@ import * as Danfo from 'danfojs/dist/index';
 import { useState, useEffect } from 'react';
 
 const Variables = ({ datasetUrl, plotType }) => {
+
+  const MAX_VARIABLE_INPUT = 2;
+
   const [variables, setVariables] = useState([]);
   const [checkedVariables, setCheckedVariables] = useState([]);
 
@@ -17,6 +20,10 @@ const Variables = ({ datasetUrl, plotType }) => {
 
   function changeHandler(event, variable) {
     if(event.target.checked) {
+      if(plotType === 'graph' && checkedVariables.length === MAX_VARIABLE_INPUT) {
+        event.target.checked = false;
+        return alert(`You can only select ${MAX_VARIABLE_INPUT} variables for a graph plot`)
+      }
       setCheckedVariables([...checkedVariables, variable]);
     } else {
       setCheckedVariables((prev) => {
@@ -27,15 +34,14 @@ const Variables = ({ datasetUrl, plotType }) => {
 
   return (
     <div className="variable-container">
-      {variables.map(variable => {
+      {variables.map((variable, index) => {
         return (
-          <div>
+          <div key={index}>
             <br />
             <input 
               type="checkbox" 
               className="dataset-variable-name" 
               onChange={(event) => changeHandler(event, variable)}
-              disabled={plotType === 'series' && checkedVariables.length >= 2}
             />
             {variable}
             <br />

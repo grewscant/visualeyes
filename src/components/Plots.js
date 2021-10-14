@@ -46,8 +46,8 @@ const Plots = () => {
       desc: 'Series Plot'
     },
     {
-      type: 'dataframe',
-      desc: 'DataFrame Plot'
+      type: 'graph',
+      desc: 'Graph Plot'
     }
   ];
 
@@ -56,9 +56,9 @@ const Plots = () => {
 
   return (
     <div className="all-plots-container">
-      {availablePlotTypes.map(plot => {
+      {availablePlotTypes.map((plot, index) => {
         return (
-          <div className="plot-type-btn">
+          <div className="plot-type-btn" key={index}>
             <input
               type="radio"
               name="vis-type-select"
@@ -71,9 +71,9 @@ const Plots = () => {
         );
       })}
       <br /><br />
-      {availablePlots.map(plot => {
+      {availablePlots.map((plot, index) => {
         return (
-          <div className="plot-btn">
+          <div className="plot-btn" key={index}>
             <input
               type="radio"
               name="vis-select"

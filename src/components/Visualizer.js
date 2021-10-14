@@ -10,7 +10,7 @@ const Visualizer = ({ datasetUrl }) => {
         <div className="attribute-container">
           <Variables 
             datasetUrl='https://raw.githubusercontent.com/vincentarelbundock/Rdatasets/master/csv/datasets/airquality.csv'
-            plotType='series' 
+            plotType='graph' 
           />
         </div>
       </div>
