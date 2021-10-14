@@ -23,6 +23,10 @@ const Plots = () => {
       desc: 'Pie Chart'
     },
     {
+      name: 'table',
+      desc: 'Tables'
+    },
+    {
       name: 'box',
       desc: 'Box Plot'
     },
@@ -36,10 +40,37 @@ const Plots = () => {
     }
   ];
 
+  const availablePlotTypes = [
+    {
+      type: 'series',
+      desc: 'Series Plot'
+    },
+    {
+      type: 'dataframe',
+      desc: 'DataFrame Plot'
+    }
+  ];
+
   const [selectedPlot, setSelectedPlot] = useState('line');
+  const [selectedPlotType, setSelectedPlotType] = useState('series');
 
   return (
     <div className="all-plots-container">
+      {availablePlotTypes.map(plot => {
+        return (
+          <div className="plot-type-btn">
+            <input
+              type="radio"
+              name="vis-type-select"
+              id={plot.type}
+              checked={selectedPlotType === plot.type}
+              onClick={() => setSelectedPlotType(plot.type)}
+            />
+            <label htmlFor={plot.type}>{plot.desc}</label>
+          </div>
+        );
+      })}
+      <br /><br />
       {availablePlots.map(plot => {
         return (
           <div className="plot-btn">
