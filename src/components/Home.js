@@ -2,8 +2,6 @@ import { useHistory } from 'react-router-dom';
 import { useRef } from 'react';
 import * as Danfo from 'danfojs/dist/index';
 import { Errors } from '../Constants';
-import './styles/App.css';
-
 import './styles/Home.css';
 
 const Home = ({ onDatasetFetchComplete }) => {
@@ -35,10 +33,11 @@ const Home = ({ onDatasetFetchComplete }) => {
   }
 
   return (
-    <div>
-      <h1 className="title">Paste your dataset's URL here</h1>
+    <div className="home">
+      <h1 className="main-title">Visualeyes</h1>
+      <p className="main-desc">A UI so simple, your eyes will want to thank you</p>
       <input type="text" ref={datasetUrlInput} />
-      <button onClick={onButtonClick}>Let's go</button>
+      <button className="btn-lets-go" onClick={onButtonClick}>Let's go &nbsp; 📊</button>
     </div>
   );
 };
