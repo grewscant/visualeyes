@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import './styles/Variables.css'
 
 const Variables = ({ dataFrame, onPlotButtonClick }) => {
   const [variables, setVariables] = useState([]);
@@ -22,23 +23,19 @@ const Variables = ({ dataFrame, onPlotButtonClick }) => {
     <div className="variable-container">
       {variables.map((variable, index) => {
         return (
-          <div key={index}>
-            <br />
+          <div className="variable-name-ctn" key={index}>
             <input
               type="checkbox"
               className="dataset-variable-name"
               onChange={event => changeHandler(event, variable)}
             />
-            {variable}
-            <br />
+            <span className="variable-label">{variable}</span>
           </div>
         );
       })}
       <button
         className="confirm-selection"
-        onClick={() => onPlotButtonClick(checkedVariables)}>
-        Plot it!
-      </button>
+        onClick={() => onPlotButtonClick(checkedVariables)}>Plot it ✏️</button>
     </div>
   );
 };

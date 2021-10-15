@@ -1,0 +1,26 @@
+.variable-label {
+  font-size: medium;
+  font-weight: 600;
+  margin-left: 5px;
+}
+
+.variable-name-ctn {
+  margin-top: 4px;
+}
+
+.confirm-selection {
+  padding: 10px 15px;
+  border: none;
+  width: 160px;
+  background-color: #950198;
+  font-size: medium;
+  font-weight: 600;
+  color: white;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 15px;
+}
+
+.confirm-selection:active{
+  transform: scale(0.90);
+}
