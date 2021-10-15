@@ -75,7 +75,7 @@ const Home = ({ onDatasetFetchComplete }) => {
           fillOpacity="0.05"
         />
       </svg>
-      <input type="text" ref={datasetUrlInput} placeholder="🔗 Paste your awesome URL here"/>
+      <input type="text" ref={datasetUrlInput} placeholder="🔗 Paste your awesome URL here" autoComplete="off" spellCheck="false"/>
       <button className="btn-lets-go" onClick={onButtonClick}>
         Let's go&nbsp;🚀
       </button>
