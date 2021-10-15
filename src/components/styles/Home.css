@@ -1,4 +1,5 @@
 body {
+  background-color: #fafafa;
   border: 4px solid brown;
   height: 100vh;
   display: grid;
@@ -7,28 +8,36 @@ body {
   overflow: hidden;
 }
 
-.home {  
-  width: 1280px;
-  border: 2px solid indianred;
-}
-
 .main-title {
   font-size: 85px;
-  border: indianred;
+  color: #240225;
 }
 
 .main-desc {
   font-weight: 600;
   font-size: 40px;
+  color: #240225;
+}
+
+svg {
+  height: 650px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -100;
 }
 
 input[type='text'] {
-  min-width: 700px;
-  padding: 9px;
+  min-width: 850px;
+  padding: 10px;
   margin-top: 80px;
   font-family: 'Inter';
   font-size: large;
-  border: 1px solid #F71FFC;
+  font-weight: 700;
+  background-color: #fafafa;
+  color: #240225;
+  border: 1px solid #320333;
   border-radius: 5px;
   outline: none;
 }
@@ -38,10 +47,14 @@ input[type='text'] {
   padding: 12px 20px; 
   font-family: 'Inter';
   font-weight: 700;
-  color: white;
   outline: none;
+  color: #fff;
   background-color: #F71FFC;
-  border: none;
+  border: 2px solid #F71FFC;
   border-color: #F71FFC;
+}
+
+.btn-lets-go:active {
+  transform: scale(0.90);
 }
 
