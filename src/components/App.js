@@ -7,9 +7,11 @@ import Visualizer from './Visualizer';
 
 const App = () => {
   const [dataFrame, setDataFrame] = useState();
+  const [datasetUrl, setDataSetUrl] = useState();
 
-  function onReceiveDatasetUrl(dataFrame) {
+  function onReceiveDatasetUrl(dataFrame, datasetUrl) {
     setDataFrame(dataFrame);
+    setDataSetUrl(datasetUrl);
   }
 
   return (
@@ -19,7 +21,10 @@ const App = () => {
           <Home onDatasetFetchComplete={onReceiveDatasetUrl} />
         </Route>
         <Route path="/visualizer">
-          <Visualizer dataFrame={dataFrame} />
+          <Visualizer 
+            dataFrame={dataFrame} 
+            datasetUrl={datasetUrl}
+          />
         </Route>
       </Switch>
     </Router>

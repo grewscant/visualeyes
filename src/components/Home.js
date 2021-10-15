@@ -18,7 +18,7 @@ const Home = ({ onDatasetFetchComplete }) => {
         if (dataFrame.columns.length === 1) {
           throw new Error(Errors.BAD_URL);
         }
-        onDatasetFetchComplete(dataFrame);
+        onDatasetFetchComplete(dataFrame, datasetUrl);
         navigateToVisualizer();
       })
       .catch(e => {

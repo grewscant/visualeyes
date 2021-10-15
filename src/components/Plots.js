@@ -18,20 +18,12 @@ const Plots = ({ onPlotChange }) => {
       desc: 'Line Chart'
     },
     {
-      name: 'bar',
-      desc: 'Bar Chart'
-    },
-    {
       name: 'scatter',
       desc: 'Scatter Plot'
     },
     {
       name: 'histogram',
       desc: 'Histogram'
-    },
-    {
-      name: 'pie',
-      desc: 'Pie Chart'
     },
     {
       name: 'table',
@@ -44,10 +36,6 @@ const Plots = ({ onPlotChange }) => {
     {
       name: 'violin',
       desc: 'Violin Plot'
-    },
-    {
-      name: 'time',
-      desc: 'Time series'
     }
   ];
 

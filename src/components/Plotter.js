@@ -1,89 +1,104 @@
-const Plotter = ({ dataFrame, userSelectedVariables, userSelectedPlot }) => {
+import * as Danfo from 'danfojs/dist/index';
 
-    //dataFrame.plot('current-plot-container').bar()
+const Plotter = ({ datasetUrl, userSelectedVariables, userSelectedPlot }) => {
 
-//   function renderPlot() {
-//     switch (userSelectedPlot) {
-//       case 'test':
-//         return () => {
-//           dataFrame.plot('current-plot-container').line();
-//         };
+  function renderPlot() {
+    switch (userSelectedPlot) {
+      case 'line' : 
+        return (
+            Danfo.read_csv(datasetUrl)
+              .then(df => {
+                df.plot('current-plot-container').line({ columns: userSelectedVariables });
+              })
+              .catch(e => {
+                console.log(e);
+              })
+        );
+        
+      case 'scatter':
+        return (
+          Danfo.read_csv(datasetUrl)
+            .then(df => {
+              df.plot('current-plot-container').scatter({ columns: userSelectedVariables });
+            })
+            .catch(e => {
+              console.log(e);
+            })
+        )
 
-//       case 'line':
-//         return () => {
-//           dataFrame.plot('current-plot-container').line();
-//         };
+      case 'histogram':
+        return (
+          Danfo.read_csv(datasetUrl)
+            .then(df => {
+              var layout = {
+                bargap: 0,
+                bargroupgap: 0.1,
+                barmode: "stack"
+              }
 
-//       case 'bar':
-//         return () => {
-//           dataFrame
-//             .plot('current-plot-container')
-//             .bar({ columns: userSelectedVariables });
-//         };
+              df.plot('current-plot-container').hist({ columns: userSelectedVariables, layout: layout });
+            })
+            .catch(e => {
+              console.log(e);
+            })
+        )
+        
+      case 'table':
+        return (
+          Danfo.read_csv(datasetUrl)
+            .then(df => {
+              var header = {
+                align: 'center',
+                fill: { color: ['gray'] },
+                font: { family: 'Arial', size: 15, color: 'white' }
+              };
+              var cell = {
+                align: ['center'],
+                line: { color: 'black', width: 1 }
+              };
+              df.plot('current-plot-container').table({ header_style: header, cell_style: cell});
+            })
+            .catch(e => {
+              console.log(e);
+            })
+        )
 
-//       case 'scatter':
-//         return () => {
-//           dataFrame
-//             .plot('current-plot-container')
-//             .scatter({ columns: userSelectedVariables });
-//         };
+      case 'box':
+        return (
+          Danfo.read_csv(datasetUrl)
+            .then(df => {
+              df.plot('current-plot-container').box({ columns: userSelectedVariables });
+            })
+            .catch(e => {
+              console.log(e);
+            })
+        )
 
-//       case 'histogram':
-//         return () => {
-//           dataFrame
-//             .plot('current-plot-container')
-//             .histogram({ columns: userSelectedVariables });
-//         };
+      case 'violin':
+        return (
+          Danfo.read_csv(datasetUrl)
+            .then(df => {
+              df.plot('current-plot-container').violin({ columns: userSelectedVariables });
+            })
+            .catch(e => {
+              console.log(e);
+            })
+        )
 
-//       case 'table':
-//         return () => {
-//           var header = {
-//             align: 'center',
-//             fill: { color: ['gray'] },
-//             font: { family: 'Arial', size: 15, color: 'white' }
-//           };
-//           var cell = {
-//             align: ['center'],
-//             line: { color: 'black', width: 1 }
-//           };
+      default:
+        return (
+          Danfo.read_csv(datasetUrl)
+            .then(df => {
+              df.plot('current-plot-container').line({ columns: userSelectedVariables });
+            })
+            .catch(e => {
+              console.log(e);
+            })
+        )
+    }
+  }
 
-//           dataFrame
-//             .plot('current-plot-container')
-//             .table({ header_style: header, cell_style: cell });
-//         };
-
-//       case 'box':
-//         return () => {
-//           dataFrame
-//             .plot('current-plot-container')
-//             .box({ columns: userSelectedVariables });
-//         };
-
-//       case 'violin':
-//         return () => {
-//           dataFrame
-//             .plot('current-plot-container')
-//             .violin({ columns: userSelectedVariables });
-//         };
-
-//       case 'time':
-//         return () => {
-//           dataFrame
-//             .plot('time-plot-container')
-//             .time({ columns: userSelectedVariables });
-//         };
-//       default:
-//         return () => {
-//           dataFrame
-//             .plot('time-plot-container')
-//             .line({ columns: userSelectedVariables });
-//         };
-//     }
-//   }
-
-//   renderPlot()();
-
-  console.log('Plotter dataframe is', dataFrame);
+  renderPlot();
 
   return (
     <div className="current-plot-container" id="current-plot-container"></div>

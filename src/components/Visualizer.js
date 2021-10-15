@@ -4,7 +4,7 @@
   import Plotter from './Plotter';
   import { useState, useEffect } from 'react';
 
-  const Visualizer = ({ dataFrame }) => {
+  const Visualizer = ({ dataFrame, datasetUrl }) => {
     const [userSelectedPlot, setUserSelectedPlot] = useState('line');
     const [userSelectedVariables, setUserSelectedVariables] = useState([]);
 
@@ -48,7 +48,7 @@
           </div>
           <div className="vis-plot-container">
             <Plotter
-              dataFrame={dataFrame}
+              datasetUrl={datasetUrl}
               userSelectedPlot={userSelectedPlot}
               userSelectedVariables={userSelectedVariables}
             />
