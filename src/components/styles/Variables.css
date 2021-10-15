@@ -1,11 +1,12 @@
 .variable-label {
-  font-size: medium;
+  font-size: 16px;
   font-weight: 600;
   margin-left: 5px;
+  color: #240225;
 }
 
 .variable-name-ctn {
-  margin-top: 4px;
+  margin-top: 8px;
 }
 
 .confirm-selection {
@@ -19,6 +20,10 @@
   position: absolute;
   bottom: 0;
   margin-bottom: 15px;
+}
+
+input[type="checkbox"] {
+  width: 30px;
 }
 
 .confirm-selection:active{
