@@ -14,18 +14,7 @@ const Plotter = ({ datasetUrl, userSelectedVariables, userSelectedPlot }) => {
                 console.log(e);
               })
         );
-
-      case 'bar':
-        return (
-          Danfo.read_csv(datasetUrl)
-            .then(df => {
-              df.plot('current-plot-container').bar({ columns: userSelectedVariables });
-            })
-            .catch(e => {
-              console.log(e);
-            })
-        )
-
+        
       case 'scatter':
         return (
           Danfo.read_csv(datasetUrl)
@@ -41,7 +30,13 @@ const Plotter = ({ datasetUrl, userSelectedVariables, userSelectedPlot }) => {
         return (
           Danfo.read_csv(datasetUrl)
             .then(df => {
-              df.plot('current-plot-container').histogram({ columns: userSelectedVariables });
+              var layout = {
+                bargap: 0,
+                bargroupgap: 0.1,
+                barmode: "stack"
+              }
+
+              df.plot('current-plot-container').hist({ columns: userSelectedVariables, layout: layout });
             })
             .catch(e => {
               console.log(e);
@@ -84,17 +79,6 @@ const Plotter = ({ datasetUrl, userSelectedVariables, userSelectedPlot }) => {
           Danfo.read_csv(datasetUrl)
             .then(df => {
               df.plot('current-plot-container').violin({ columns: userSelectedVariables });
-            })
-            .catch(e => {
-              console.log(e);
-            })
-        )
-
-      case 'time':
-        return (
-          Danfo.read_csv(datasetUrl)
-            .then(df => {
-              df.plot('current-plot-container').time({ columns: userSelectedVariables });
             })
             .catch(e => {
               console.log(e);
