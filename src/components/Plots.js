@@ -1,6 +1,11 @@
 import { useState } from 'react';
 
-const Plots = () => {
+const Plots = ({ onPlotChange }) => {
+
+  const [selectedPlot, setSelectedPlot] = useState('line');
+
+  onPlotChange(selectedPlot);
+
   const availablePlots = [
     {
       name: 'line',
@@ -23,6 +28,10 @@ const Plots = () => {
       desc: 'Pie Chart'
     },
     {
+      name: 'table',
+      desc: 'Tables'
+    },
+    {
       name: 'box',
       desc: 'Box Plot'
     },
@@ -36,13 +45,11 @@ const Plots = () => {
     }
   ];
 
-  const [selectedPlot, setSelectedPlot] = useState('line');
-
   return (
     <div className="all-plots-container">
-      {availablePlots.map(plot => {
+      {availablePlots.map((plot, index) => {
         return (
-          <div className="plot-btn">
+          <div className="plot-btn" key={index}>
             <input
               type="radio"
               name="vis-select"
