@@ -30,10 +30,6 @@ const Plots = ({ onPlotChange }) => {
       desc: 'Histogram'
     },
     {
-      name: 'pie',
-      desc: 'Pie Chart'
-    },
-    {
       name: 'table',
       desc: 'Tables'
     },
