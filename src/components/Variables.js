@@ -1,20 +1,12 @@
-
-import * as Danfo from 'danfojs/dist/index';
 import { useState, useEffect } from 'react';
 
-const Variables = ({ datasetUrl, onPlotButtonClick }) => {
+const Variables = ({ dataFrame, onPlotButtonClick }) => {
   const [variables, setVariables] = useState([]);
   const [checkedVariables, setCheckedVariables] = useState([]);
 
   useEffect(() => {
-    Danfo.read_csv(datasetUrl)
-      .then(DataFrame => {
-        setVariables(DataFrame.columns);
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  }, [datasetUrl]);
+    setVariables(dataFrame.columns);
+  }, [dataFrame]);
 
   function changeHandler(event, variable) {
     if (event.target.checked) {

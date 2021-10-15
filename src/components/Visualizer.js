@@ -4,8 +4,8 @@
   import Plotter from './Plotter';
   import { useState, useEffect } from 'react';
 
-  const Visualizer = ({ datasetUrl }) => {
-    const [userSelectedPlot, setUserSelectedPlot] = useState('');
+  const Visualizer = ({ dataFrame }) => {
+    const [userSelectedPlot, setUserSelectedPlot] = useState('line');
     const [userSelectedVariables, setUserSelectedVariables] = useState([]);
 
     function onPlotChange(selectedPlot) {
@@ -16,7 +16,7 @@
       setUserSelectedVariables(selectedVariables);
     }
 
-    useEffect(() => { 
+    useEffect(() => {
       if(userSelectedPlot.length > 0) {
         console.log(`Plot: ${userSelectedPlot}`);
       }
@@ -34,7 +34,7 @@
           <h1 className="title">Dataset</h1>
           <div className="attribute-container">
             <Variables 
-              datasetUrl='https://raw.githubusercontent.com/vincentarelbundock/Rdatasets/master/csv/datasets/airquality.csv'
+              dataFrame={dataFrame}
               onPlotButtonClick={onPlotButtonClick}
             />
           </div>
@@ -48,7 +48,7 @@
           </div>
           <div className="vis-plot-container">
             <Plotter
-              datasetUrl={datasetUrl}
+              dataFrame={dataFrame}
               userSelectedPlot={userSelectedPlot}
               userSelectedVariables={userSelectedVariables}
             />

@@ -1,28 +1,33 @@
-// This file has been temporarily deprecated.
-// Will be used if required.
-
 import { useHistory } from 'react-router-dom';
+import { useRef } from 'react';
+import * as Danfo from 'danfojs/dist/index';
+import { Errors } from '../Constants';
+import './styles/App.css';
+
 import './styles/Home.css';
 
-const Home = () => {
+const Home = ({ onDatasetFetchComplete }) => {
   const history = useHistory();
+  const datasetUrlInput = useRef(null);
 
-  const onInputChange = e => {
-    try {
-      validateInputFile(e);
-    } catch (err) {
-      alert(err);
-    }
-  };
+  function onButtonClick() {
+    validateUrlAndSetState(datasetUrlInput.current.value);
+  }
 
-  function validateInputFile(e) {
-    let inputFile = e.target.files[0];
-
-    if (!inputFile.type === 'text/csv') {
-      throw Error('Please drop only CSVs');
-    } else {
-      navigateToVisualizer();
-    }
+  function validateUrlAndSetState(datasetUrl) {
+    Danfo.read_csv(datasetUrl)
+      .then(dataFrame => {
+        if (dataFrame.columns.length === 1) {
+          throw new Error(Errors.BAD_URL);
+        }
+        onDatasetFetchComplete(dataFrame);
+        navigateToVisualizer();
+      })
+      .catch(e => {
+        // Damn the custom logic to display error to the user
+        // Just show an alert god damn it
+        alert(e);
+      });
   }
 
   function navigateToVisualizer() {
@@ -30,8 +35,11 @@ const Home = () => {
   }
 
   return (
-    // TODO: Write logic here or delete this component
-    <div></div>
+    <div>
+      <h1 className="title">Paste your dataset's URL here</h1>
+      <input type="text" ref={datasetUrlInput} />
+      <button onClick={onButtonClick}>Let's go</button>
+    </div>
   );
 };
 
