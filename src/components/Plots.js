@@ -1,10 +1,16 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const Plots = ({ onPlotChange }) => {
 
   const [selectedPlot, setSelectedPlot] = useState('line');
 
-  onPlotChange(selectedPlot);
+  useEffect(() => {
+    onPlotChange(selectedPlot);
+  }, [onPlotChange, selectedPlot]);
+
+  function onPlotChangedHere(selected) {
+    setSelectedPlot(selected);
+  }
 
   const availablePlots = [
     {
@@ -55,7 +61,7 @@ const Plots = ({ onPlotChange }) => {
               name="vis-select"
               id={plot.name}
               checked={selectedPlot === plot.name}
-              onClick={() => setSelectedPlot(plot.name)}
+              onChange={() => onPlotChangedHere(plot.name)}
             />
             <label htmlFor={plot.name}>{plot.desc}</label>
           </div>
