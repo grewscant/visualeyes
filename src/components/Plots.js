@@ -1,6 +1,11 @@
 import { useState } from 'react';
 
-const Plots = () => {
+const Plots = ({ onPlotChange }) => {
+
+  const [selectedPlot, setSelectedPlot] = useState('line');
+
+  onPlotChange(selectedPlot);
+
   const availablePlots = [
     {
       name: 'line',
@@ -40,37 +45,8 @@ const Plots = () => {
     }
   ];
 
-  const availablePlotTypes = [
-    {
-      type: 'series',
-      desc: 'Series Plot'
-    },
-    {
-      type: 'graph',
-      desc: 'Graph Plot'
-    }
-  ];
-
-  const [selectedPlot, setSelectedPlot] = useState('line');
-  const [selectedPlotType, setSelectedPlotType] = useState('series');
-
   return (
     <div className="all-plots-container">
-      {availablePlotTypes.map((plot, index) => {
-        return (
-          <div className="plot-type-btn" key={index}>
-            <input
-              type="radio"
-              name="vis-type-select"
-              id={plot.type}
-              checked={selectedPlotType === plot.type}
-              onClick={() => setSelectedPlotType(plot.type)}
-            />
-            <label htmlFor={plot.type}>{plot.desc}</label>
-          </div>
-        );
-      })}
-      <br /><br />
       {availablePlots.map((plot, index) => {
         return (
           <div className="plot-btn" key={index}>

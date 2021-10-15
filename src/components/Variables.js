@@ -1,10 +1,8 @@
+
 import * as Danfo from 'danfojs/dist/index';
 import { useState, useEffect } from 'react';
 
-const Variables = ({ datasetUrl, plotType }) => {
-
-  const MAX_VARIABLE_INPUT = 2;
-
+const Variables = ({ datasetUrl, onPlotButtonClick }) => {
   const [variables, setVariables] = useState([]);
   const [checkedVariables, setCheckedVariables] = useState([]);
 
@@ -19,16 +17,12 @@ const Variables = ({ datasetUrl, plotType }) => {
   }, [datasetUrl]);
 
   function changeHandler(event, variable) {
-    if(event.target.checked) {
-      if(plotType === 'graph' && checkedVariables.length === MAX_VARIABLE_INPUT) {
-        event.target.checked = false;
-        return alert(`You can only select ${MAX_VARIABLE_INPUT} variables for a graph plot`)
-      }
+    if (event.target.checked) {
       setCheckedVariables([...checkedVariables, variable]);
     } else {
-      setCheckedVariables((prev) => {
-        prev.filter((curr) => curr.value !== variable.value);
-      });
+      setCheckedVariables(
+        checkedVariables.filter(checked => variable !== checked)
+      );
     }
   }
 
@@ -38,16 +32,21 @@ const Variables = ({ datasetUrl, plotType }) => {
         return (
           <div key={index}>
             <br />
-            <input 
-              type="checkbox" 
-              className="dataset-variable-name" 
-              onChange={(event) => changeHandler(event, variable)}
+            <input
+              type="checkbox"
+              className="dataset-variable-name"
+              onChange={event => changeHandler(event, variable)}
             />
             {variable}
             <br />
           </div>
         );
       })}
+      <button
+        className="confirm-selection"
+        onClick={() => onPlotButtonClick(checkedVariables)}>
+        Plot it!
+      </button>
     </div>
   );
 };
