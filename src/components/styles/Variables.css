@@ -26,6 +26,10 @@ input[type="checkbox"] {
   width: 30px;
 }
 
-.confirm-selection:active{
+.confirm-selection:active {
   transform: scale(0.90);
+}
+
+.confirm-selection:hover {
+  cursor: pointer;
 }

@@ -54,6 +54,7 @@
             />
           </div>
         </div>
+        <p className="masthead">Made with ❤️ by Divya, Danyl, Gandharv & Matt</p>
       </div>
     );
   };
