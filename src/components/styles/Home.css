@@ -18,6 +18,19 @@ body {
   color: #240225;
 }
 
+.masthead {
+  font-weight: 600;
+  font-size: 20px;
+  color: #240225;
+  opacity: 0.6;
+  bottom: 20px;
+  right: 0;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  z-index: -100;
+}
+
 svg {
   height: 650px;
   position: absolute;
@@ -55,5 +68,9 @@ input[type='text'] {
 
 .btn-lets-go:active {
   transform: scale(0.90);
+}
+
+.btn-lets-go:hover {
+  cursor: pointer;
 }
 

@@ -70,6 +70,19 @@ div.dataset-container {
   display: inline;
 }
 
+.masthead {
+  font-weight: 600;
+  font-size: 20px;
+  color: #240225;
+  opacity: 0.6;
+  bottom: 20px;
+  right: 0;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  z-index: -100;
+}
+
 button {
   border-radius: 6px;
   padding: 6px 12px;
