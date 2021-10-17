@@ -39,6 +39,7 @@ const Home = ({ onDatasetFetchComplete }) => {
         A UI so simple, your eyes will want to thank you.
       </p>
       <svg
+        className="bg-svg-logo"
         width="694"
         height="649"
         viewBox="0 0 694 649"
