@@ -80,7 +80,7 @@ const Home = ({ onDatasetFetchComplete }) => {
       <button className="btn-lets-go" onClick={onButtonClick}>
         Let's go&nbsp;🚀
       </button>
-      <p className="masthead">Made with ❤️ by Divya, Danyl, Gandharv & Matt</p>
+      <p className="masthead">Made with ❤️ by Divya, Danyl, Gandharv & Mathew</p>
     </div>
   );
 };
